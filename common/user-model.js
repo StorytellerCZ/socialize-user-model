@@ -94,13 +94,13 @@ export default ({ Meteor, Package, check, LinkableModel, LinkParent }) => {
             * Sets the default email for the currently logged in users
             * @param {String} emailAddress The email address to set as the current
             */
-            setDefaultEmail(emailAddress) {
+            async setDefaultEmail(emailAddress) {
                 check(emailAddress, String);
                 if (this.userId) {
-                    const user = Meteor.users.findOne({ _id: this.userId, 'emails.address': emailAddress });
+                    const user = await Meteor.users.findOneAsync({ _id: this.userId, 'emails.address': emailAddress });
                     if (user) {
-                        Meteor.users.update({ _id: this.userId, 'emails.default': true }, { $set: { 'emails.$.default': false } });
-                        Meteor.users.update({ _id: this.userId, 'emails.address': emailAddress }, { $set: { 'emails.$.default': true } });
+                        Meteor.users.updateAsync({ _id: this.userId, 'emails.default': true }, { $set: { 'emails.$.default': false } });
+                        Meteor.users.updateAsync({ _id: this.userId, 'emails.address': emailAddress }, { $set: { 'emails.$.default': true } });
                     }
                 } else {
                     throw new Meteor.Error('NotAuthorized', 'You must be logged in to perform this operation.');
