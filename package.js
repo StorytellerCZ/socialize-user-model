@@ -13,6 +13,7 @@ Package.onUse(function _(api) {
     api.use([
         'socialize:linkable-model@1.0.6',
         'accounts-base',
+        'aldeed:simple-schema@1.13.1'
     ]);
 
     api.use('accounts-password', { weak: true });
