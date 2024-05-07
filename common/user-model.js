@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import SimpleSchema from 'meteor/aldeed:simple-schema';
+import 'meteor/aldeed:collection2/static'
 /* eslint-enable import/no-unresolved */
 
 
