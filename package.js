@@ -8,12 +8,12 @@ Package.describe({
 });
 
 Package.onUse(function _(api) {
-    api.versionsFrom(['2.8.1', '3.0-rc.1']);
+    api.versionsFrom(['2.8.1', '3.0']);
 
     api.use([
         'socialize:linkable-model@2.0.0',
         'accounts-base',
-        'aldeed:simple-schema@1.13.1'
+        'aldeed:simple-schema@1.13.1 || 2.0.0'
     ]);
 
     api.use('accounts-password', { weak: true });
