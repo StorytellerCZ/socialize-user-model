@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import SimpleSchema from 'meteor/aldeed:simple-schema';
+import SimpleSchema from 'meteor/aldeed:simple-schema'
 import 'meteor/aldeed:collection2/static'
 /* eslint-enable import/no-unresolved */
 
@@ -116,7 +116,7 @@ export default ({ Meteor, Package, check, LinkableModel, LinkParent }) => {
             */
             setDefaultEmail(emailAddress) {
                 if (Meteor.user().isSelf()) {
-                    Meteor.call('setDefaultEmail', emailAddress);
+                    Meteor.callAsync('setDefaultEmail', emailAddress);
                 }
             },
             /**
